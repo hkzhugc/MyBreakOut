@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\opengl_class">
+      <UniqueIdentifier>{879b9623-4fd4-4435-98e2-b405d7e140fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\opengl_class">
+      <UniqueIdentifier>{bbf4ee89-bd9e-40a5-9cc6-284f7fe46bf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Resources">
+      <UniqueIdentifier>{ff803298-cbe4-4a60-90a1-8726a2008edc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Window">
+      <UniqueIdentifier>{77a09eab-0e00-40cb-8840-36e0796aadf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Window">
+      <UniqueIdentifier>{f64fd5d3-92b3-4254-b6c3-cc295a161c73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Renderer">
+      <UniqueIdentifier>{dfbe2723-76d3-4173-a767-0f0d055c6cd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Renderer">
+      <UniqueIdentifier>{629f7416-996a-4a77-9654-03be8ee939b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Scene">
+      <UniqueIdentifier>{32c8c7b4-5673-45fd-9faa-2b3b1c725bb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Scene">
+      <UniqueIdentifier>{766acafe-3001-454f-a001-c2d05414ef21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Resources">
+      <UniqueIdentifier>{402f37d6-183b-48f1-af6b-c677b4d5f266}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\opengl_class\FrameBufferObject.h">
+      <Filter>头文件\opengl_class</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\opengl_class\RenderBuffer.h">
+      <Filter>头文件\opengl_class</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\opengl_class\shader.h">
+      <Filter>头文件\opengl_class</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\opengl_class\TextureBuffer.h">
+      <Filter>头文件\opengl_class</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\opengl_class\VertexArray.h">
+      <Filter>头文件\opengl_class</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Resources\Texture.h">
+      <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\window\Window.h">
+      <Filter>头文件\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Resources\ResourceManager.h">
+      <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\Scene.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\SceneObeject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Resources\Mesh.h">
+      <Filter>头文件\Resources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Resources\Texture.cpp">
+      <Filter>源文件\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\opengl_class\FrameBufferObject.cpp">
+      <Filter>源文件\opengl_class</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\opengl_class\RenderBuffer.cpp">
+      <Filter>源文件\opengl_class</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\opengl_class\shader.cpp">
+      <Filter>源文件\opengl_class</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\opengl_class\TextureBuffer.cpp">
+      <Filter>源文件\opengl_class</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\opengl_class\VertexArray.cpp">
+      <Filter>源文件\opengl_class</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\glad.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\stb_image.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\window\Window.cpp">
+      <Filter>源文件\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Resources\ResourceManager.cpp">
+      <Filter>源文件\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\Scene.cpp">
+      <Filter>源文件\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Resources\Mesh.cpp">
+      <Filter>源文件\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\SceneObeject.cpp">
+      <Filter>源文件\Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
