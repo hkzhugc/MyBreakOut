@@ -6,6 +6,7 @@
 #include "Resources/ResourceManager.h"
 #include "window/Window.h"
 #include "Game.h"
+#include "SpriteObject.h"
 // need to implement some class
 
 int main(int argv, char** argc)
@@ -47,21 +48,28 @@ int main(int argv, char** argc)
 	Window window(WindowConfig::default());
 	Scene scene;
 	// load resouces
-	ResourceManager::LoadShader("tex", "../shader/screen.vs", "../shader/ssaoBlur.fs", "");
-	ResourceManager::LoadTexture2D("tex", "../texture/mario.png");
+	ResourceManager::LoadShader("sprite", "../shader/2Dtexture.vs", "../shader/2Dtexture.fs", "");
+	ResourceManager::LoadTexture2D("mario", "../texture/mario.png");
 	
 	// init VAO
 	VertexArray quadVAO;
 	quadVAO.initAsQuad();
-	ResourceManager::AddMeshes("quad", &quadVAO); // TODO : resources managed should belong to ResourceManager
-	scene.addObeject("screen", new SceneObeject());
-	scene.getObject("screen").mesh = ResourceManager::GetMesh("quad");
-	scene.getObject("screen").model_mat = glm::mat4(1.0);
-	scene.getObject("screen").shader = ResourceManager::GetShader("tex");
-	scene.getObject("screen").texture = ResourceManager::GetTexture2D("tex");
+	ResourceManager::AddMeshes("sprite_quad", &quadVAO); // TODO : resources managed should belong to ResourceManager
+
+	// set user defined object
+	auto sprite = new SpriteObject();
+	sprite->position = glm::vec2(200, 200);
+	sprite->size = glm::vec2(100, 100);
+	sprite->angle = 45.f;
+	sprite->shader = ResourceManager::GetShader("sprite");
+	sprite->texture = ResourceManager::GetTexture2D("mario");
+	sprite->mesh = ResourceManager::GetMesh("sprite_quad");
+
+	// add the object to scene
+	scene.addObeject("screen", sprite);
 
 	Game gameManager(window.getConfig().width, window.getConfig().height);
-
+	scene.init();
 	while (!window.shouldClose() && !gameManager.shouldExit())
 	{
 		window.render(scene);

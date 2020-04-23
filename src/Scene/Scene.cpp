@@ -31,17 +31,19 @@ void Scene::render(const glm::mat4 & view, const glm::mat4& projection)
 	for (auto& iter : Objects)
 	{
 		auto obj = iter.second;
-		if (obj->shader && obj->mesh && obj->texture)
-		{
-			obj->shader->use();
-			// set mvp first
-			obj->shader->setMat4("view", view);
-			obj->shader->setMat4("projection", projection);
-			obj->shader->setMat4("model", obj->model_mat);
-			// TODO : each obj should have a method to auto config shader uniform values by a map ?
-			obj->shader->setInt("texture", 0); // set texture
-			glBindTextureUnit(0, obj->texture->getID()); // TODO : don't want to see opengl code 
-			obj->mesh->draw();
-		}
+		obj->shader->use();
+		// set view and projection, since they are invisible to object
+		obj->shader->setMat4("view", view);
+		obj->shader->setMat4("projection", projection);
+		// call object render function
+		obj->render();
+	}
+}
+
+void Scene::init()
+{
+	for (auto& iter : Objects)
+	{
+		iter.second->init();
 	}
 }

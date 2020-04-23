@@ -75,11 +75,14 @@
     <ClInclude Include="..\src\Scene\Scene.h">
       <Filter>头文件\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Scene\SceneObeject.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Resources\Mesh.h">
       <Filter>头文件\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\SceneObeject.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SpriteObject.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +130,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Scene\SceneObeject.cpp">
       <Filter>源文件\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SpriteObject.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -7,9 +7,12 @@ class SceneObeject
 {
 public:
 	SceneObeject();
-	~SceneObeject();
+	virtual ~SceneObeject();
 
-	glm::mat4 model_mat;
+	virtual void init() = 0;
+	virtual void render() = 0;
+
+	glm::mat4 model;
 	Texture2D* texture; // TODO : surport multi texture, for complex render
 	VertexArray* mesh;
 	Shader* shader;

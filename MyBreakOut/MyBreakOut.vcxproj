@@ -132,6 +132,7 @@
     <ClInclude Include="..\src\Resources\Texture.h" />
     <ClInclude Include="..\src\Scene\Scene.h" />
     <ClInclude Include="..\src\Scene\SceneObeject.h" />
+    <ClInclude Include="..\src\SpriteObject.h" />
     <ClInclude Include="..\src\window\Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +149,7 @@
     <ClCompile Include="..\src\Resources\Texture.cpp" />
     <ClCompile Include="..\src\Scene\Scene.cpp" />
     <ClCompile Include="..\src\Scene\SceneObeject.cpp" />
+    <ClCompile Include="..\src\SpriteObject.cpp" />
     <ClCompile Include="..\src\stb_image.cpp" />
     <ClCompile Include="..\src\window\Window.cpp" />
   </ItemGroup>

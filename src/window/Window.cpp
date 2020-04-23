@@ -1,5 +1,4 @@
 #include "Window.h"
-#include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 Window::Window(const WindowConfig& config)
 	: config_(config)
@@ -50,7 +49,7 @@ void Window::render(Scene & scene)
 {
 	// clear this window
 	clear();
-	scene.render(projection, view);
+	scene.render(view, projection);
 	glfwSwapBuffers(window_);
 	glfwPollEvents();
 }
