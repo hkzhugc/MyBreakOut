@@ -7,6 +7,7 @@
 #include "window/Window.h"
 #include "Game.h"
 #include "SpriteObject.h"
+#include "GameLevel.h"
 // need to implement some class
 
 int main(int argv, char** argc)
@@ -43,37 +44,46 @@ int main(int argv, char** argc)
 	// 4.22 : 
 	//      1.change vertexArray class to DSA method
 	//      2.implement Scene to manage object, ResourceManager to manage resources
+	// 4.23 :
+	//      1.
 
 	// init window config
 	Window window(WindowConfig::default());
+	// init game manager
+	Game gameManager(window.getConfig().width, window.getConfig().height);
+	// init a scene
 	Scene scene;
+
 	// load resouces
 	ResourceManager::LoadShader("sprite", "../shader/2Dtexture.vs", "../shader/2Dtexture.fs", "");
-	ResourceManager::LoadTexture2D("mario", "../texture/mario.png");
-	
-	// init VAO
-	VertexArray quadVAO;
-	quadVAO.initAsQuad();
-	ResourceManager::AddMeshes("sprite_quad", &quadVAO); // TODO : resources managed should belong to ResourceManager
+	ResourceManager::LoadTexture2D("block", "../texture/block.png");
+	ResourceManager::LoadTexture2D("solid-block", "../texture/solid-block.png");
+	ResourceManager::AddDefaultMesh("sprite_quad", QUAD);
 
 	// set user defined object
-	auto sprite = new SpriteObject();
-	sprite->position = glm::vec2(200, 200);
-	sprite->size = glm::vec2(100, 100);
-	sprite->angle = 45.f;
-	sprite->shader = ResourceManager::GetShader("sprite");
-	sprite->texture = ResourceManager::GetTexture2D("mario");
-	sprite->mesh = ResourceManager::GetMesh("sprite_quad");
+	auto level1 = new GameLevel();
+	size_t level_width = window.getConfig().width;
+	size_t level_height = window.getConfig().height / 2;
+	level1->loadLevel("../level/level1.txt", level_width, level_height);
+	level1->position = glm::vec2(0.f, window.getConfig().height  - level_height);
+	level1->ubo4ViewProject = window.getMatUbo(); // TODO : assign it when rendering?
 
-	// add the object to scene
-	scene.addObeject("screen", sprite);
-
-	Game gameManager(window.getConfig().width, window.getConfig().height);
+	// add the object to the scene
+	scene.addObeject("level1", level1);
+	
+	// init the scene
 	scene.init();
+
+	gameManager.init();
+
+	// run loop
 	while (!window.shouldClose() && !gameManager.shouldExit())
 	{
 		window.render(scene);
 	}
+
+	// clear data
 	ResourceManager::Clear();
+
 	return 0;
 }

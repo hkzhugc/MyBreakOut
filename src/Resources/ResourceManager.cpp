@@ -6,16 +6,7 @@
 using namespace std;
 ResourceManager::~ResourceManager()
 {
-	for (auto iter : Shaders)
-	{
-		delete iter.second;
-	}
-	Shaders.clear();
-	for (auto iter : Texture2Ds)
-	{
-		delete iter.second;
-	}
-	Texture2Ds.clear();
+	Clear();
 }
 
 ResourceManager & ResourceManager::GetInstance()
@@ -51,10 +42,17 @@ void ResourceManager::Clear()
 		delete iter.second;
 	}
 	manager.Texture2Ds.clear();
+	for (auto iter : manager.Meshes)
+	{
+		delete iter.second;
+	}
+	manager.Meshes.clear();
 }
 
-void ResourceManager::AddMeshes(const std::string & name, VertexArray * mesh)
+void ResourceManager::AddDefaultMesh(const std::string & name, DefaultMeshType type)
 {
+	VertexArray * mesh = new VertexArray();
+	mesh->initAsQuad(); // TODO switch case to generate default Mesh
 	auto& manager = GetInstance();
 	manager.Meshes[name] = mesh;
 }

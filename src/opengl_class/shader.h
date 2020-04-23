@@ -13,7 +13,7 @@ public:
 
 	GLuint ID;
 	void use();
-
+	void bindUniformMatrices(GLuint uniform_buffer_id); // bind uniform projection and view mat
 	// utility uniform functions
 	// ------------------------------------------------------------------------
 	void setBool(const std::string &name, bool value) const

@@ -16,12 +16,12 @@ Scene::~Scene()
 	Objects.clear();
 }
 
-SceneObeject & Scene::getObject(const std::string & name)
+Obeject & Scene::getObject(const std::string & name)
 {
 	return *Objects[name];
 }
 
-void Scene::addObeject(const std::string & name, SceneObeject * obj)
+void Scene::addObeject(const std::string & name, Obeject * obj)
 {
 	Objects[name] = obj;
 }
@@ -31,10 +31,6 @@ void Scene::render(const glm::mat4 & view, const glm::mat4& projection)
 	for (auto& iter : Objects)
 	{
 		auto obj = iter.second;
-		obj->shader->use();
-		// set view and projection, since they are invisible to object
-		obj->shader->setMat4("view", view);
-		obj->shader->setMat4("projection", projection);
 		// call object render function
 		obj->render();
 	}

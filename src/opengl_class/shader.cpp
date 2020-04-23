@@ -65,6 +65,12 @@ void Shader::use()
 	glUseProgram(ID);
 }
 
+void Shader::bindUniformMatrices(GLuint uniform_buffer_id)
+{
+	GLint matrices_loction = glGetUniformBlockIndex(ID, "Matrices");
+	glUniformBufferEXT(ID, matrices_loction, uniform_buffer_id);
+}
+
 GLuint Shader::load_shader_from_file(const char * path, const GLenum shader_type)
 {
 	string code;

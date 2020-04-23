@@ -35,7 +35,7 @@ public:
 
 	 operator GLFWwindow*() { return window_; }
 	 void render(Scene& scene);
-	 bool shouldClose()
+	 int shouldClose()
 	 {
 		 return glfwWindowShouldClose(window_);
 	 }
@@ -43,11 +43,16 @@ public:
 	 {
 		 return config_;
 	 }
+	 GLuint getMatUbo()
+	 {
+		 return ubo4Matrices;
+	 }
 private:
 	WindowConfig config_;
 	GLFWwindow* window_;
 	glm::mat4 projection;
 	glm::mat4 view;
+	GLuint ubo4Matrices;
 	//Camera main_camera_;
 };
 

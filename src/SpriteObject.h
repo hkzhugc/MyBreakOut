@@ -1,17 +1,17 @@
 #pragma once
-#include "Scene/SceneObeject.h"
+#include "Scene/Obeject.h"
 #include <glm/gtc/matrix_transform.hpp>
 class SpriteObject
-	: public SceneObeject
+	: public Obeject
 {
 public:
 	SpriteObject();
-	~SpriteObject();
+	virtual ~SpriteObject();
 
 	virtual void init();
 	virtual void render();
 	//virtual void update();
-
+	glm::vec3 color;
 	glm::vec2 position;
 	glm::vec2 size;
 	float angle;

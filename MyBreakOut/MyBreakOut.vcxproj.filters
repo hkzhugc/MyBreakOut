@@ -78,10 +78,16 @@
     <ClInclude Include="..\src\Resources\Mesh.h">
       <Filter>头文件\Resources</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Scene\SceneObeject.h">
+    <ClInclude Include="..\src\SpriteObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\Obeject.h">
       <Filter>头文件\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\SpriteObject.h">
+    <ClInclude Include="..\src\GameLevel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Player.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -128,10 +134,16 @@
     <ClCompile Include="..\src\Resources\Mesh.cpp">
       <Filter>源文件\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Scene\SceneObeject.cpp">
+    <ClCompile Include="..\src\SpriteObject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\Obeject.cpp">
       <Filter>源文件\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\SpriteObject.cpp">
+    <ClCompile Include="..\src\GameLevel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Player.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

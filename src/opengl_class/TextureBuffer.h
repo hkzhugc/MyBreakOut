@@ -10,6 +10,7 @@ public:
 	~TextureBuffer();
 	void setTexture(size_t width, size_t height, GLenum internel_format, GLenum format, const void* data, GLenum data_type = GL_UNSIGNED_BYTE);
 	void setTexture(size_t width, size_t height, GLenum internel_format, GLenum format, std::vector<const void*> datas, GLenum data_type = GL_UNSIGNED_BYTE);
+	void bindUnit(int location) { glBindTextureUnit(location, ID); }
 	GLuint getID() { return ID; }
 	GLenum getType() { return texture_type_; }
 	size_t getWidth() { return width_; }

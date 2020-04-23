@@ -4,6 +4,14 @@
 #include "Texture.h"
 #include "opengl_class/shader.h"
 #include "opengl_class/VertexArray.h"
+// TODO : it should be declare at Mesh.h
+enum DefaultMeshType
+{
+	QUAD,
+	CUBE,
+	SPHERE,
+	TRIANGLE
+};
 class ResourceManager
 {
 public:
@@ -12,7 +20,7 @@ public:
 	static Texture2D* GetTexture2D(const std::string & name);
 	static Shader* GetShader(const std::string & name);
 	static VertexArray* GetMesh(const std::string & name);
-	static void AddMeshes(const std::string & name, VertexArray* mesh);
+	static void AddDefaultMesh(const std::string & name, DefaultMeshType type);
 	static bool LoadShader(const std::string & name, const std::string& vs_path, const std::string& fs_path, const std::string& gs_path);
 	static bool LoadTexture2D(const std::string & name, const std::string& texture_path, const bool image_vertical_flip = true);
 private:

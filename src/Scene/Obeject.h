@@ -1,21 +1,27 @@
 #pragma once
 #include <vector>
+#include <map>
 #include "opengl_class/VertexArray.h"
 #include "opengl_class/shader.h"
 #include "Resources/Texture.h"
-class SceneObeject
+
+class Obeject
 {
 public:
-	SceneObeject();
-	virtual ~SceneObeject();
+	Obeject();
+	virtual ~Obeject();
 
 	virtual void init() = 0;
 	virtual void render() = 0;
+	glm::mat4 world();
+	void bindTextures();
 
+	GLuint ubo4ViewProject;
 	glm::mat4 model;
-	Texture2D* texture; // TODO : surport multi texture, for complex render
+	std::map<std::string, Texture2D*> textures;
 	VertexArray* mesh;
 	Shader* shader;
-	std::vector<SceneObeject*> childrens;
+	Obeject* parent;
+	std::vector<Obeject*> childrens;
 };
 

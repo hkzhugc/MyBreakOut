@@ -1,4 +1,5 @@
 #pragma once
+#include "Player.h"
 class Game
 {
 public:
@@ -14,6 +15,7 @@ public:
 	GameState State;
 	bool      Keys[1024];
 	size_t Width, Height;
+	Player* player;
 
 	// functions
 	void init();
