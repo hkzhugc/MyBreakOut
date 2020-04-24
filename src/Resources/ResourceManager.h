@@ -20,6 +20,7 @@ public:
 	static Texture2D* GetTexture2D(const std::string & name);
 	static Shader* GetShader(const std::string & name);
 	static VertexArray* GetMesh(const std::string & name);
+	// TODO : loading also return the pointer, and check if it is exist
 	static void AddDefaultMesh(const std::string & name, DefaultMeshType type);
 	static bool LoadShader(const std::string & name, const std::string& vs_path, const std::string& fs_path, const std::string& gs_path);
 	static bool LoadTexture2D(const std::string & name, const std::string& texture_path, const bool image_vertical_flip = true);

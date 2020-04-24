@@ -13,6 +13,7 @@ public:
 
 	virtual void init() = 0;
 	virtual void render() = 0;
+	virtual void update(float dt) = 0;
 	glm::mat4 world();
 	void bindTextures();
 

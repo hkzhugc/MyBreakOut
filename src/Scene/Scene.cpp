@@ -26,7 +26,7 @@ void Scene::addObeject(const std::string & name, Obeject * obj)
 	Objects[name] = obj;
 }
 
-void Scene::render(const glm::mat4 & view, const glm::mat4& projection)
+void Scene::render()
 {
 	for (auto& iter : Objects)
 	{
@@ -41,5 +41,13 @@ void Scene::init()
 	for (auto& iter : Objects)
 	{
 		iter.second->init();
+	}
+}
+
+void Scene::update(float dt)
+{
+	for (auto& iter : Objects)
+	{
+		iter.second->update(dt);
 	}
 }

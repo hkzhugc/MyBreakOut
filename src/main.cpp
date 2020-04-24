@@ -10,6 +10,10 @@
 #include "GameLevel.h"
 // need to implement some class
 
+// init window config
+Window window(WindowConfig::default());
+Game gameManager(window.getConfig().width, window.getConfig().height);
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 int main(int argv, char** argc)
 {
 	// 1. init scene, including loading models(3d model, texture), build a structure to store and manage the scene
@@ -47,38 +51,48 @@ int main(int argv, char** argc)
 	// 4.23 :
 	//      1.
 
-	// init window config
-	Window window(WindowConfig::default());
-	// init game manager
-	Game gameManager(window.getConfig().width, window.getConfig().height);
-	// init a scene
-	Scene scene;
+	glfwSetKeyCallback(window, key_callback);
 
 	// load resouces
 	ResourceManager::LoadShader("sprite", "../shader/2Dtexture.vs", "../shader/2Dtexture.fs", "");
 	ResourceManager::LoadTexture2D("block", "../texture/block.png");
 	ResourceManager::LoadTexture2D("solid-block", "../texture/solid-block.png");
+	ResourceManager::LoadTexture2D("mario", "../texture/mario.png");
 	ResourceManager::AddDefaultMesh("sprite_quad", QUAD);
 
+	// init game manager
+	gameManager.init();
+	// init a scene
+	Scene scene;
+
 	// set user defined object
-	auto level1 = new GameLevel();
-	size_t level_width = window.getConfig().width;
-	size_t level_height = window.getConfig().height / 2;
-	level1->loadLevel("../level/level1.txt", level_width, level_height);
-	level1->position = glm::vec2(0.f, window.getConfig().height  - level_height);
-	level1->ubo4ViewProject = window.getMatUbo(); // TODO : assign it when rendering?
+	//auto level1 = new GameLevel();
+	//size_t level_width = window.getConfig().width;
+	//size_t level_height = window.getConfig().height / 2;
+	//level1->loadLevel("../level/level1.txt", level_width, level_height);
+	//level1->position = glm::vec2(0.f, window.getConfig().height  - level_height);
+	//level1->ubo4ViewProject = window.getMatUbo(); // TODO : assign it when rendering?
 
 	// add the object to the scene
-	scene.addObeject("level1", level1);
+	//scene.addObeject("level", gameManager.level);
+	scene.addObeject("player", gameManager.player);
+	scene.addObeject("ball", gameManager.ball);
 	
 	// init the scene
 	scene.init();
-
-	gameManager.init();
-
+	float lastFrame = glfwGetTime();
+	float currentFrame = glfwGetTime();
+	float deltaTime;
 	// run loop
 	while (!window.shouldClose() && !gameManager.shouldExit())
 	{
+		currentFrame = glfwGetTime();
+		deltaTime = currentFrame - lastFrame;
+		lastFrame = currentFrame;
+		float temp = lastFrame;
+
+		gameManager.processInput();
+		scene.update(deltaTime);
 		window.render(scene);
 	}
 
@@ -86,4 +100,19 @@ int main(int argv, char** argc)
 	ResourceManager::Clear();
 
 	return 0;
+}
+
+// TODO : give a method to user define key_callback
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
+{
+	// When a user presses the escape key, we set the WindowShouldClose property to true, closing the application
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
+	if (key >= 0 && key < 1024)
+	{
+		if (action == GLFW_PRESS)
+			gameManager.Keys[key] = GL_TRUE;
+		else if (action == GLFW_RELEASE)
+			gameManager.Keys[key] = GL_FALSE;
+	}
 }

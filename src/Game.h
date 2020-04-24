@@ -1,5 +1,7 @@
 #pragma once
 #include "Player.h"
+#include "GameLevel.h"
+#include "Ball.h"
 class Game
 {
 public:
@@ -15,11 +17,13 @@ public:
 	GameState State;
 	bool      Keys[1024];
 	size_t Width, Height;
+	Ball*   ball;
 	Player* player;
+	GameLevel* level;
 
 	// functions
 	void init();
-	void processInput(float dt);
+	void processInput();
 	void update(float dt);
 	void render();
 	bool shouldExit()

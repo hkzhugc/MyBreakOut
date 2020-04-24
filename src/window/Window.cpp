@@ -40,9 +40,8 @@ Window::Window(const WindowConfig& config)
 
 	glBindBuffer(GL_UNIFORM_BUFFER, ubo4Matrices);
 	glBufferData(GL_UNIFORM_BUFFER, 2 * sizeof(glm::mat4), NULL, GL_STATIC_DRAW);
-	glBindBuffer(GL_UNIFORM_BUFFER, 0);
-
 	glBindBufferRange(GL_UNIFORM_BUFFER, 0, ubo4Matrices, 0, 2 * sizeof(glm::mat4));
+	glBindBuffer(GL_UNIFORM_BUFFER, 0);
 }
 
 Window::~Window()
@@ -63,7 +62,7 @@ void Window::render(Scene & scene)
 	glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(glm::mat4), &projection[0][0]);
 	glBufferSubData(GL_UNIFORM_BUFFER, sizeof(glm::mat4), sizeof(glm::mat4), &view[0][0]);
 	glBindBuffer(GL_UNIFORM_BUFFER, 0);
-	scene.render(view, projection);
+	scene.render();
 	glfwSwapBuffers(window_);
 	glfwPollEvents();
 }

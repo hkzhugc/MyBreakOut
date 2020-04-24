@@ -10,7 +10,7 @@ public:
 
 	virtual void init();
 	virtual void render();
-	//virtual void update();
+	virtual void update(float dt) {} // did nothing
 	glm::vec3 color;
 	glm::vec2 position;
 	glm::vec2 size;
