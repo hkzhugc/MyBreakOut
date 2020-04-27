@@ -12,6 +12,7 @@ public:
 
 	virtual void init();
 	virtual void render();
+	virtual void update(float dt);
 
 	glm::vec2 position;
 private:

@@ -8,6 +8,7 @@ public:
 	~Player();
 
 	void update(float dt);
-	int direction;
+	size_t width;
+	glm::vec2 velocity;
 };
 

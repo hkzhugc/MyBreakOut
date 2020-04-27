@@ -90,6 +90,9 @@
     <ClInclude Include="..\src\Player.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Ball.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Resources\Texture.cpp">
@@ -144,6 +147,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Player.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Ball.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -108,3 +108,7 @@ void GameLevel::render()
 		children->render();
 	}
 }
+
+void GameLevel::update(float dt)
+{
+}
