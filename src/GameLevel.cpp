@@ -62,7 +62,8 @@ void GameLevel::init()
 				continue;
 			glm::vec2 pos = glm::vec2(x + 0.5f, y + 0.5f) * unit_offset;
 			glm::vec2 size = unit_offset * 0.5f;
-			SpriteObject* obj = new SpriteObject();
+			Brick* obj = new Brick();
+			obj->rigidBody.size = glm::vec3(size, 0) * 2.f;
 			obj->ubo4ViewProject = ubo4ViewProject;
 			obj->position = pos;
 			obj->size = size;
@@ -111,4 +112,8 @@ void GameLevel::render()
 
 void GameLevel::update(float dt)
 {
+	for (auto children : childrens)
+	{
+		children->update(dt);
+	}
 }

@@ -58,7 +58,7 @@ int main(int argv, char** argc)
 	ResourceManager::LoadShader("sprite", "../shader/2Dtexture.vs", "../shader/2Dtexture.fs", "");
 	ResourceManager::LoadTexture2D("block", "../texture/block.png");
 	ResourceManager::LoadTexture2D("solid-block", "../texture/solid-block.png");
-	ResourceManager::LoadTexture2D("mario", "../texture/mario.png");
+	ResourceManager::LoadTexture2D("ball", "../texture/awesomeface.png");
 	ResourceManager::AddDefaultMesh("sprite_quad", QUAD);
 
 	// init game manager
@@ -75,7 +75,7 @@ int main(int argv, char** argc)
 	//level1->ubo4ViewProject = window.getMatUbo(); // TODO : assign it when rendering?
 
 	// add the object to the scene
-	//scene.addObeject("level", gameManager.level);
+	scene.addObeject("level", gameManager.level);
 	scene.addObeject("player", gameManager.player);
 	scene.addObeject("ball", gameManager.ball);
 	
@@ -90,10 +90,10 @@ int main(int argv, char** argc)
 		currentFrame = glfwGetTime();
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
-		float temp = lastFrame;
 
 		gameManager.processInput();
 		scene.update(deltaTime);
+		gameManager.checkCollisions();
 		window.render(scene);
 	}
 

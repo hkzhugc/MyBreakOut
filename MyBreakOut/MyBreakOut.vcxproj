@@ -134,6 +134,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Ball.h" />
+    <ClInclude Include="..\src\Brick.h" />
+    <ClInclude Include="..\src\Collision\AABBRigidBody.h" />
+    <ClInclude Include="..\src\Collision\RigidBody.h" />
+    <ClInclude Include="..\src\Collision\SphereRigidBody.h" />
     <ClInclude Include="..\src\Game.h" />
     <ClInclude Include="..\src\GameLevel.h" />
     <ClInclude Include="..\src\opengl_class\FrameBufferObject.h" />
@@ -152,6 +156,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Ball.cpp" />
+    <ClCompile Include="..\src\Brick.cpp" />
+    <ClCompile Include="..\src\Collision\AABBRigidBody.cpp" />
+    <ClCompile Include="..\src\Collision\RigidBody.cpp" />
+    <ClCompile Include="..\src\Collision\SphereRigidBody.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\GameLevel.cpp" />
     <ClCompile Include="..\src\glad.c" />

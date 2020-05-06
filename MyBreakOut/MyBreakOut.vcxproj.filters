@@ -43,6 +43,12 @@
     <Filter Include="头文件\Resources">
       <UniqueIdentifier>{402f37d6-183b-48f1-af6b-c677b4d5f266}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Collision">
+      <UniqueIdentifier>{189779b0-83a3-42f8-b5c8-000781eff75d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Collision">
+      <UniqueIdentifier>{808c8dae-2eea-4552-8cbe-50ad41f4aa01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\opengl_class\FrameBufferObject.h">
@@ -91,6 +97,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Ball.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Collision\RigidBody.h">
+      <Filter>头文件\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Collision\AABBRigidBody.h">
+      <Filter>头文件\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Collision\SphereRigidBody.h">
+      <Filter>头文件\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Brick.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -151,6 +169,18 @@
     </ClCompile>
     <ClCompile Include="..\src\Ball.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Brick.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Collision\AABBRigidBody.cpp">
+      <Filter>源文件\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Collision\SphereRigidBody.cpp">
+      <Filter>源文件\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Collision\RigidBody.cpp">
+      <Filter>源文件\Collision</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

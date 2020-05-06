@@ -17,6 +17,7 @@ public:
 	glm::mat4 world();
 	void bindTextures();
 
+	bool isDestroyed;
 	GLuint ubo4ViewProject;
 	glm::mat4 model;
 	std::map<std::string, Texture2D*> textures;

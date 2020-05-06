@@ -24,11 +24,15 @@ public:
 	// functions
 	void init();
 	void processInput();
-	void update(float dt);
+	void checkCollisions();
 	void render();
 	bool shouldExit()
 	{
 		return false;
 	}
+private:
+	void reset();
+	void resetPlayer();
+	void resetScene();
 };
 

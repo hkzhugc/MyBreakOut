@@ -26,10 +26,17 @@ void SpriteObject::init()
 
 void SpriteObject::render()
 {
-	shader->use();
-	shader->bindUniformMatrices(ubo4ViewProject);
-	shader->setMat4("model", world());
-	shader->setVec3("color", color);
-	bindTextures();
-	mesh->draw();
+	if (!isDestroyed)
+	{
+		shader->use();
+		shader->bindUniformMatrices(ubo4ViewProject);
+		shader->setMat4("model", world());
+		shader->setVec3("color", color);
+		bindTextures();
+		mesh->draw();
+	}
+}
+
+void SpriteObject::update(float dt)
+{
 }

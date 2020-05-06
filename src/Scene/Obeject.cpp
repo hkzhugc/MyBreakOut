@@ -3,7 +3,7 @@
 
 
 Obeject::Obeject()
-	: parent(nullptr), shader(nullptr), mesh(nullptr), ubo4ViewProject(0)
+	: isDestroyed(false), model(1.0f), parent(nullptr), shader(nullptr), mesh(nullptr), ubo4ViewProject(0)
 {
 }
 

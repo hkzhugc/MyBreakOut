@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene/Obeject.h"
-#include "SpriteObject.h"
+#include "Brick.h"
 class GameLevel
 	: public Obeject
 {
